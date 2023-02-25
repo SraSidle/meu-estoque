@@ -1,5 +1,7 @@
+import {SHomeContainer} from "./style";
+
 const Home = (): JSX.Element => {
-    return(<>Eu sou a Home</>)
+    return(<SHomeContainer>Eu sou a Home</SHomeContainer>)
 }
 
 export default Home;

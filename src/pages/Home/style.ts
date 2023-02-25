@@ -1,3 +1,5 @@
 import styled from "styled-components";
 
-export const HomeContainer = styled.div``;
+export const SHomeContainer = styled.div`
+    width: 100%;
+`;
