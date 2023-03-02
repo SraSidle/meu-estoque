@@ -1,10 +1,13 @@
 import { createGlobalStyle } from "styled-components";
+import { defaultTheme } from "./themes/default";
 
 export const GlobalStyle = createGlobalStyle`
     *{
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        font-family: Roboto, 'Helvetica Neue', sans-serif;
+
     } 
 
     @media (max-width: 599px) {
@@ -28,14 +31,15 @@ export const GlobalStyle = createGlobalStyle`
         box-shadow: 0 0 0 2px gray;
     }
     body{
+        background-color: ${defaultTheme.background};
         -webkit-font-smoothing: antialiased
     }
     h1 {
-        font-size: 5rem;
+        font-size: 3rem;
+        color: ${defaultTheme.titleColor};
     }
-    border-style, input, text-area, button{
-        font-family: sans-serif;
+    border-style, input, text-area, button, p{
         font-weight: 400;
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 `;
