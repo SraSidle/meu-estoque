@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import * as S from "./style";
+import {SForm, SLoginContainer} from "./style";
 import { useAuth } from "contexts/Account.Context";
 import { DataType } from "types/interfaces/users";
 import { Api } from "helpers/Api";
@@ -35,13 +35,12 @@ const Login = (): JSX.Element => {
 
   action();
   return (
-    // <S.Login>
     <>
       <Header />
-      <S.SLoginContainer>
-        <h1 className="title">Entre na sua conta!</h1>
-        {/* <S.Form> */}
-        <label>Digite seu Nome:</label>
+      <SLoginContainer>
+        <h1 className="title">Entre na sua conta</h1>
+    <SForm>
+        <label>Digite seu Nome</label>
         <input
           placeholder="Adimin"
           id="email_login"
@@ -54,7 +53,7 @@ const Login = (): JSX.Element => {
           }}
           required
         />
-        <label>Digite sua Senha:</label>
+        <label>Digite sua Senha</label>
         <input
           placeholder="********"
           id="password_login"
@@ -77,14 +76,12 @@ const Login = (): JSX.Element => {
         >
           Entrar
         </button>
-        {/* </S.Form> */}
+    </SForm>
         <p>
           Não tem conta? <a>Cadastre-se</a>
         </p>
-      </S.SLoginContainer>
-
+      </SLoginContainer>
       <Footer />
-      {/* </S.Login> */}
     </>
   );
 };

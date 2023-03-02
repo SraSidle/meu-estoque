@@ -13,6 +13,8 @@ export const defaultTheme = {
     fontColor: "#010440",
     homeGridFontColor: "#010440",
     primaryColororBlack:" #0455bf",
+    ShadowColorRgbaMedium: "rgba(0, 0, 0, 0.2)",
+    ShadowColorRgbaLight: "rgba(0, 0, 0, 0.1)",
     fabappwhitebrackgroundprimarycolor: "#0455bf",
     fabappwhitebrackgroundnavigationcolor: "#0455bf",
 
