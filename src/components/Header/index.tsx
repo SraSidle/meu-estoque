@@ -1,10 +1,11 @@
-import { SHeader } from "./style";
+import { SHeader} from "./style";
+import Menu from "components/Menu";
 
 const Header = (): JSX.Element => {
   return (
     <SHeader>
-      <i>-</i>
-      <h1>Meu Estoque</h1>
+      <Menu />
+        <h1>Meu Estoque</h1>
     </SHeader>
   );
 };
