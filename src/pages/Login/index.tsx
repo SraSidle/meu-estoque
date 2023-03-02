@@ -7,7 +7,7 @@ import { useState } from "react";
 import Header from "components/Header";
 import Footer from "components/Footer";
 
- const Login = (): JSX.Element => {
+const Login = (): JSX.Element => {
   const { login } = useAuth();
   // const [valueName, setValueName] = useState("");
   const [valueEmail, setValueEmail] = useState("");
@@ -31,7 +31,6 @@ import Footer from "components/Footer";
         break;
     }
     console.log(data);
-
   };
 
   action();
@@ -39,54 +38,55 @@ import Footer from "components/Footer";
     // <S.Login>
     <>
       <Header />
-      {/* <S.Container> */}
-        <h2 className="title">Entre na sua conta!</h2>
+      <S.SLoginContainer>
+        <h1 className="title">Entre na sua conta!</h1>
         {/* <S.Form> */}
-          <label>Digite seu Nome:</label>
-          <input
-            placeholder="Adimin"
-            id="email_login"
-            name="email"
-            title="email"
-            type="email"
-            onChange={(e): void => {
-              e.stopPropagation();
-              setValueEmail(e.target.value);
-            }}           
-            required
-          />
-          <label>Digite sua Senha:</label>
-          <input
-            placeholder="********"
-            id="password_login"
-            name="password"
-            title="password"
-            type="password"
-            onChange={(e): void => {
-              e.stopPropagation();
-              setValuePassword(e.target.value)
-            }}
-            value={valuePassword}
-            required
-          />
-          <button
-            onClick={(e): void => {
-              action();
-              e.preventDefault();
-              e.stopPropagation();
-            }}
-          >
-            Entrar
-          </button>
+        <label>Digite seu Nome:</label>
+        <input
+          placeholder="Adimin"
+          id="email_login"
+          name="email"
+          title="email"
+          type="email"
+          onChange={(e): void => {
+            e.stopPropagation();
+            setValueEmail(e.target.value);
+          }}
+          required
+        />
+        <label>Digite sua Senha:</label>
+        <input
+          placeholder="********"
+          id="password_login"
+          name="password"
+          title="password"
+          type="password"
+          onChange={(e): void => {
+            e.stopPropagation();
+            setValuePassword(e.target.value);
+          }}
+          value={valuePassword}
+          required
+        />
+        <button
+          onClick={(e): void => {
+            action();
+            e.preventDefault();
+            e.stopPropagation();
+          }}
+        >
+          Entrar
+        </button>
         {/* </S.Form> */}
         <p>
           Não tem conta? <a>Cadastre-se</a>
         </p>
-      {/* </S.Container> */}
+      </S.SLoginContainer>
+
       <Footer />
-    {/* </S.Login> */}
+      {/* </S.Login> */}
     </>
   );
-}
+};
 
 export default Login;
