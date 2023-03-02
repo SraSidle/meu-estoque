@@ -7,6 +7,7 @@ export const SHeader = styled.header`
   width: 100%;
   height: 15rem;
   background-image: linear-gradient(${gradient});
+  box-shadow: 0 2px 5px 0 ${defaultTheme.ShadowColorRgbaMedium};
   display: flex;
   justify-content: flex-start;
 

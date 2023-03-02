@@ -9,7 +9,7 @@ export const SHamburguer = styled.div`
   background-color: white;
   position: absolute;
   border-radius: 3px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 5px ${defaultTheme.ShadowColorRgbaMedium};
   transition: 0.5s;
   z-index: 4;
 

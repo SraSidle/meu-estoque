@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { SMenu, SHamburguer, SList } from "./style";
-import sair from "assets/icons/sair.png";
 import home from "assets/icons/silhueta-de-icone-de-casa.png";
-import grafico from "assets/icons/grafico-de-crescimento.png";
-import acordo from "assets/icons/marca-de-verificacao.png";
-import contrato from "assets/icons/apolice-de-seguro.png";
-import entradas from "assets/icons/seta-direita.png";
+import graphic from "assets/icons/grafico-de-crescimento.png";
+import entry from "assets/icons/seta-direita.png";
+import settings from "assets/icons/configuracoes-cog.png";
+import sair from "assets/icons/sair.png";
+import agreement from "assets/icons/marca-de-verificacao.png";
+import contract from "assets/icons/apolice-de-seguro.png";
 import NavigateMenu from "components/NavigateMenu";
 
 const Menu = (): JSX.Element => {
@@ -30,24 +31,29 @@ const Menu = (): JSX.Element => {
             <NavigateMenu
               text="Estoque Atual"
               page="/estoque-do-usuario/id"
-              image={grafico}
+              image={graphic}
             />
             <NavigateMenu
               text="Entradas"
               page="/entrada-de-mercadorias"
-              image={entradas}
+              image={entry}
+            />
+            <NavigateMenu
+              text="Configurações"
+              page="/configuracoes-de-conta"
+              image={settings}
             />
             <NavigateMenu text="Logout" page="/login" image={sair} />
             <div className="line"></div>
             <NavigateMenu
               text="Termos de Uso"
               page="/termos-de-uso"
-              image={contrato}
+              image={contract}
             />
             <NavigateMenu
               text="Política de privacidade"
               page="/politica-de-privacidade"
-              image={acordo}
+              image={agreement}
             />
           </ul>
         </SList>
