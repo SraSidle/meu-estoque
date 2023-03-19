@@ -1,15 +1,24 @@
 import { SHomeContainer } from "./style";
 import Header from "components/Header";
 import Footer from "components/Footer";
+import { useNavigate } from "react-router-dom";
 
 const Home = (): JSX.Element => {
+  const navigate = useNavigate();
+
   return (
     <>
       <Header />
-    <SHomeContainer>
-      <h1>Essa é a página Home</h1>
-    </SHomeContainer>
-    <Footer />
+      <SHomeContainer>
+        <button
+          onClick={(): void => {
+            navigate("/adicionar-novo-produto");
+          }}
+        >
+          Adicione um novo produto
+        </button>
+      </SHomeContainer>
+      <Footer />
     </>
   );
 };

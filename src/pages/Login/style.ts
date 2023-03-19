@@ -1,8 +1,6 @@
 import { defaultTheme } from "assets/styles/themes/default";
 import styled from "styled-components";
 
-const gradient = `${defaultTheme.primary}, ${defaultTheme.primaryShade}, ${defaultTheme.headerColor}, ${defaultTheme.headerColorrgb}, ${defaultTheme.primaryColororBlack}`;
-
 export const SLoginContainer = styled.div`
   width: 100%;
   min-height: 100vh;
@@ -39,22 +37,5 @@ export const SForm = styled.form`
 
   input {
     width: 90%;
-  }
-
-  button {
-    width: 20rem;
-    height: 7.5rem;
-    font-weight: 600;
-    background-image: linear-gradient(${gradient});
-    color: ${defaultTheme.headerColorcontrast};
-    border: none;
-    border-radius: 5px;
-    box-shadow: 1px 1px 1px 1px ${defaultTheme.ShadowColorRgbaMedium};
-    transition: ease-in-out 0.3s;
-    cursor: pointer;
-
-    &:hover {
-      transform: scale(0.98);
-    }
   }
 `;

@@ -1,14 +1,16 @@
 import Footer from "components/Footer";
 import Header from "components/Header";
+import Product from "components/Product";
 import { SMyStock } from "./style";
 
 const MyStock = (): JSX.Element => {
+
   return (
     <>
       <Header />
-    <SMyStock>
-      <h1>Esse é o seu estoque</h1>
-    </SMyStock>
+      <SMyStock>
+        <Product />
+      </SMyStock>
       <Footer />
     </>
   );
