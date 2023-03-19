@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import { defaultTheme } from "./themes/default";
+const gradient = `${defaultTheme.primary}, ${defaultTheme.primaryShade}, ${defaultTheme.headerColor}, ${defaultTheme.headerColorrgb}, ${defaultTheme.primaryColororBlack}`;
 
 export const GlobalStyle = createGlobalStyle`
     *{
@@ -62,4 +63,22 @@ export const GlobalStyle = createGlobalStyle`
     label {
         color: ${defaultTheme.mediumTint};
     }
+
+    button {
+    width: 20rem;
+    background-image: linear-gradient(${gradient});
+    color: ${defaultTheme.white};
+    height: 7.5rem;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px ${defaultTheme.ShadowColorRgbaMedium};
+    transition: ease-in-out 0.3s;
+    cursor: pointer;
+        font-weight: 600;
+
+        &:hover {
+          transform: scale(0.98);
+        }
+    }
+
 `;
