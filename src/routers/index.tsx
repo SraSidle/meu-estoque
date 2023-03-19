@@ -1,3 +1,4 @@
+import AddProduct from "pages/AddProduct";
 import Home from "pages/Home";
 import Login from "pages/Login";
 import MyStock from "pages/MyStock";
@@ -14,6 +15,7 @@ const Router = (): JSX.Element => {
             <Route path="*" element={<NotFound />}/>
             <Route path="/login" element={<Login />}/>
             <Route path="/" element={<Home />}/>
+            <Route path="/adicionar-novo-produto" element={<AddProduct />}/>
             <Route path="/estoque-do-usuario/id" element={<MyStock />}/>
             <Route path="/entrada-de-mercadorias" element={<ProductEntry />}/>
             <Route path="/configuracoes-de-conta" element={<Settings />}/>
