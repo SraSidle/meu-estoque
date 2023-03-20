@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { mockProducts } from "helpers/data";
 import { SAddProductForm, STextAreaContent } from "./style";
 import Input from "components/Input";
+import Message from "components/Message";
 
 const FormAddProduct = (): JSX.Element => {
   const [name, setName] = useState<string>("");
@@ -10,7 +11,16 @@ const FormAddProduct = (): JSX.Element => {
   const [image, setImage] = useState<string>("");
   const [adress, setAdress] = useState<string>("");
   const [description, setDescription] = useState<string>("");
+  const [messageState, setMessageState] = useState<Boolean>(false);
+  const [messageValue, setMessageValue] = useState<string>("");
 
+  const changeMessageState = (messageValue: string) => {
+    setMessageState(true);
+    setMessageValue(messageValue);
+    setTimeout(() => {
+      setMessageState(false);
+    }, 5000);
+  };
   const handleTextareaChange = (
     event: React.ChangeEvent<HTMLTextAreaElement>
   ) => {
@@ -31,62 +41,59 @@ const FormAddProduct = (): JSX.Element => {
 
     console.log(newProduct);
     mockProducts.push(newProduct);
-    console.log("esse é o mockProducts Depois do input: ", mockProducts);
     setName("");
     setDepartment("");
     setImage("");
     setPrice("");
     setDescription("");
     setAdress("");
+    changeMessageState("Produto adicionado com sucesso!");
   };
-
-  //   useEffect(() => {
-  //     if(mockProducts.length > 4) {
-  //         console.log("mudou o ngc");
-  //     }
-  //   }, [mockProducts])
 
   return (
-    <SAddProductForm>
-      <form onSubmit={handleAddProduct}>
-        <Input
-          label="Nome do Produto"
-          type="text"
-          value={setName}
-          placeholder="Bola de Futebol profissional"
-        />
-        <Input
-          label="Preço do Produto"
-          type="text"
-          value={setPrice}
-          placeholder="Bola de Futebol profissional"
-        />
-        <Input
-          label="Imagem do produto"
-          type="text"
-          value={setImage}
-          placeholder="images/"
-        />
-        <Input
-          label="Departamento do Produto"
-          type="text"
-          value={setDepartment}
-          placeholder="Esporte e Lazer"
-        />
-        <Input
-          label="Localização do Produto"
-          type="text"
-          value={setAdress}
-          placeholder="Galpão 01, Rua 03, Divisória 03, plateleira"
-        />
-        <STextAreaContent>
-          <label>Descrição do produto</label>
-          <textarea value={description} onChange={handleTextareaChange} />
-        </STextAreaContent>
-        <button type="submit">Adicionar</button>
-      </form>
-    </SAddProductForm>
+    <>
+      {messageState && <Message message={messageValue} />}
+      <SAddProductForm>
+        <form onSubmit={handleAddProduct}>
+          <Input
+            label="Nome do Produto"
+            type="text"
+            value={setName}
+            placeholder="Bola de Futebol profissional"
+          />
+          <Input
+            label="Preço do Produto"
+            type="text"
+            value={setPrice}
+            placeholder="Bola de Futebol profissional"
+          />
+          <Input
+            label="Imagem do produto"
+            type="text"
+            value={setImage}
+            placeholder="images/"
+          />
+          <Input
+            label="Departamento do Produto"
+            type="text"
+            value={setDepartment}
+            placeholder="Esporte e Lazer"
+          />
+          <Input
+            label="Localização do Produto"
+            type="text"
+            value={setAdress}
+            placeholder="Galpão 01, Rua 03, Divisória 03, plateleira"
+          />
+          <STextAreaContent>
+            <label>Descrição do produto</label>
+            <textarea value={description} onChange={handleTextareaChange} />
+          </STextAreaContent>
+          <button type="submit">Adicionar</button>
+        </form>
+      </SAddProductForm>
+    </>
   );
-  };
+};
 
 export default FormAddProduct;

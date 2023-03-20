@@ -7,8 +7,8 @@ const AddProduct = (): JSX.Element => {
     <>
       <Header />
       <SAddProductContainer>
-      <h1>Adicione um novo produto aqui</h1>
-      <FormAddProduct />
+        <h1>Adicione um novo produto aqui</h1>
+        <FormAddProduct />
       </SAddProductContainer>
     </>
   );

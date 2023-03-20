@@ -8,7 +8,6 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         font-family: Roboto, 'Helvetica Neue', sans-serif;
-
     } 
 
     @media (max-width: 599px) {
@@ -16,6 +15,7 @@ export const GlobalStyle = createGlobalStyle`
 		font-size: 1vw;
 	}
 }
+
 @media (min-width: 600px) and (max-width: 1022px) {
 	html {
 		font-size: 0.7vw;
