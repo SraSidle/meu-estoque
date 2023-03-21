@@ -63,6 +63,7 @@ const FormUpdateProduct = ({
     setAmount("");
     setAdress("");
 
+    setUpdateModal(!updateModal);
     changeMessageState("Produto atualizado com sucesso!");
     navigate("/estoque-do-usuario/id");
   };
@@ -114,9 +115,13 @@ const FormUpdateProduct = ({
           </STextAreaContent>
           <button type="submit">Atualizar</button>
         </form>
-        <div onClick={()=>{
-          setUpdateModal(!updateModal)
-        }}>❌</div>
+        <div
+          onClick={() => {
+            setUpdateModal(!updateModal);
+          }}
+        >
+          ❌
+        </div>
       </SAddProductForm>
     </>
   );
