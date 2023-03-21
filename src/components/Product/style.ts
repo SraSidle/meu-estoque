@@ -14,12 +14,18 @@ export const SContainer = styled.div`
 
 export const SProductContainer = styled.div`
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 5rem;
+  padding: 8rem 0;
 `;
 
 export const SProduct = styled.div`
   background-color: ${defaultTheme.white};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   width: 50rem;
   height: 40rem;
   padding: 2rem;
@@ -28,6 +34,17 @@ export const SProduct = styled.div`
 
   &:hover {
     background-color: ${defaultTheme.light};
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+  }
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
 
   p {

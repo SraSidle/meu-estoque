@@ -1,5 +1,5 @@
 import { mockProducts } from "helpers/data";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SContainer, SProduct, SProductContainer } from "./style";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -33,11 +33,20 @@ const Product = (): JSX.Element => {
         {filteredData.map((product) => (
           <SProduct key={product.id}>
             <h2>{product.name}</h2>
-            <img src={product.image} alt={`imagem de ${product.name}`} />
-            <p>
-              R$<span>{` ${product.price}`}</span>
-            </p>
-            <Link className="more-information" to={`/products/${product.id}`}>Ver detalhes</Link>{" "}
+            <div className="container">
+              <img src={product.image} alt={`imagem de ${product.name}`} />
+              <div className="text-container">
+                <p>
+                  R$<span>{` ${product.price}`}</span>
+                </p>
+                <p>
+                  Quantidade: <span>{product.amount}</span>
+                </p>
+              </div>
+            </div>
+            <Link className="more-information" to={`/products/${product.id}`}>
+              Ver detalhes
+            </Link>{" "}
           </SProduct>
         ))}
       </SProductContainer>
