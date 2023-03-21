@@ -57,7 +57,7 @@ const ProductDetails = (): JSX.Element => {
                 Departamento: <span>{product.department}</span>
               </p>
               <p>
-                Preço: <span>R$ {product.price} reais</span>{" "}
+                Preço: <span>R$ {product.price} reais</span>
               </p>
               <p>
                 Quantidade em Estoque: <span>{product.amount} unidades</span>
@@ -66,11 +66,9 @@ const ProductDetails = (): JSX.Element => {
                 Descrição: <span>{product.description}</span>
               </p>
               <p>
-                {" "}
-                Endereço: <span>{product.adress}</span>{" "}
+                Endereço: <span>{product.adress}</span>
               </p>
               <p>
-                {" "}
                 <span> A {product.distance} km de você</span>
               </p>
               <div className="button-container">
