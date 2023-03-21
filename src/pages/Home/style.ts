@@ -17,14 +17,9 @@ export const SHelloContainer = styled.div`
   display: flex;
   gap: 3rem;
 
-  h1 {
-    color: ${defaultTheme.mediumTint}
-  }
-
   .date {
-    color: ${defaultTheme.ShadowColorRgbaMedium}
+    color: gray;
   }
-
 `;
 
 export const STopContainer = styled.div`
@@ -45,15 +40,20 @@ export const STopContainer = styled.div`
 `;
 
 export const SGraphicContainer = styled.div`
-display: flex;
-flex-direction: column;
-align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  align-items: center;
+  background-color: ${defaultTheme.light};
+  border-radius: 1rem;
+  box-shadow: 2px 1px 2px 2px ${defaultTheme.ShadowColorRgbaLight};
 `;
 
 export const SDownContainer = styled.div`
+  margin: 10rem 0;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
-
+  gap: 5rem;
 `;

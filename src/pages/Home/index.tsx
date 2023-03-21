@@ -26,20 +26,21 @@ import {
 } from "recharts";
 import { data, dataBarras, dataTortas } from "helpers/graphic";
 
-/*
-const date = DateTime.local(); // pega a data atual
-const newDate = date.plus({ hours: 2 }); // adiciona 2 horas
-console.log(newDate.toISO()
-*/
-
 const Home = (): JSX.Element => {
   const navigate = useNavigate();
   const dateDescription = DateTime.now().toLocaleString({
     ...DateTime.DATE_SHORT,
     weekday: "long",
   });
-  const date = DateTime.local(); // pega a data atual
-  const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+ 
+  const COLORS = [
+    "#0088FE",
+    "#d32e2e",
+    "#00c410",
+    "#c3c310",
+    "#1f73d3",
+    "#b042ff",
+  ];
 
   return (
     <>
@@ -47,7 +48,7 @@ const Home = (): JSX.Element => {
       <SHomeContainer>
         <STopContainer>
           <SHelloContainer>
-            <h1>Boas vindas, User. Aqui está seu DashBoard!</h1>
+            <h1>{"Boas vindas, Poker.  Aqui está seu DashBoard!"}</h1>
             <h1 className="date">{dateDescription}</h1>
           </SHelloContainer>
           <button
@@ -59,7 +60,7 @@ const Home = (): JSX.Element => {
           </button>
         </STopContainer>
 
-        <h1>Gráfico de Linhas</h1>
+        <h1> Resumo mensal</h1>
         <ResponsiveContainer width="70%" height={300}>
           <LineChart data={data}>
             <CartesianGrid strokeDasharray="3 3" />
@@ -69,18 +70,18 @@ const Home = (): JSX.Element => {
             <Legend />
             <Line
               type="monotone"
-              dataKey="pv"
-              stroke="#8884d8"
+              dataKey="restante"
+              stroke="#c3c310"
               activeDot={{ r: 8 }}
             />
-            <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-            <Line type="monotone" dataKey="amt" stroke="#ffc658" />
+            <Line type="monotone" dataKey="saidas" stroke="#b6493a" />
+            <Line type="monotone" dataKey="entradas" stroke="#2fdc72" />
           </LineChart>
         </ResponsiveContainer>
 
         <SDownContainer>
           <SGraphicContainer>
-            <h1>Gráfico de Barras</h1>
+            <h1> Entradas e Saídas</h1>
             <BarChart
               width={600}
               height={300}
@@ -105,13 +106,21 @@ const Home = (): JSX.Element => {
               <CartesianGrid strokeDasharray="3 3" />
               <Tooltip />
               <Legend />
-              <Bar dataKey="pv" fill="#8884d8" label={{ position: "top" }} />
-              <Bar dataKey="uv" fill="#82ca9d" label={{ position: "top" }} />
+              <Bar
+                dataKey="saidas"
+                fill="#b6493a"
+                label={{ position: "top" }}
+              />
+              <Bar
+                dataKey="entradas"
+                fill="#2fdc72"
+                label={{ position: "top" }}
+              />
             </BarChart>
           </SGraphicContainer>
 
           <SGraphicContainer>
-            <h1>Gráfico de Tortas</h1>
+            <h1>Composição do seu Estoque</h1>
             <PieChart width={400} height={400}>
               <Pie
                 data={dataTortas}

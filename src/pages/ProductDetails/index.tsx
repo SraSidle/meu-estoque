@@ -1,7 +1,13 @@
 import Header from "components/Header";
+import Footer from "components/Footer";
 import { mockProducts } from "helpers/data";
-import { useParams } from "react-router-dom";
-import { SProductDetails, STextContainer } from "./style";
+import { useNavigate, useParams } from "react-router-dom";
+import {
+  SContainer,
+  SProductDetails,
+  SProductDetailsPage,
+  STextContainer,
+} from "./style";
 import { useState } from "react";
 import Warnning from "components/Wanning";
 import edit from "assets/icons/edit.png";
@@ -11,6 +17,7 @@ const ProductDetails = (): JSX.Element => {
   const [modalDelete, setModalDelete] = useState<boolean>(false);
   const { productId } = useParams<{ productId: any }>();
   const product = mockProducts.find((p) => p.id === parseInt(productId));
+  const navigate = useNavigate();
 
   const changeModal = () => {
     setModalDelete(!modalDelete);
@@ -21,35 +28,65 @@ const ProductDetails = (): JSX.Element => {
   }
 
   return (
-    <>
+    <SContainer>
       <Header />
-      {modalDelete && <Warnning productId={product.id} valueModal={modalDelete}/>}
-      <SProductDetails>
-        <h1>{product.name}</h1>
-        <STextContainer>
-          <div>
-            <img className="product-image"
-              alt={`imagem do produto: ${product.name}`}
-              src={product.image}
-            />
-          </div>
-          <div className="product-description">
-            <p>{product.department}</p>
-            <p>R$ {product.price}</p>
-            <p>{product.adress}</p>
-            <p>{product.description}</p>
-            <button>
-              <img src={edit} alt="ícone de um lápis" />
-              Editar Produto
-            </button>
-            <button onClick={changeModal}>
-              <img src={deleteIcon} alt="ícone de um lixeira" />
-              Deletar Produto
-            </button>
-          </div>
-        </STextContainer>
-      </SProductDetails>
-    </>
+      <button
+        className="button-back"
+        onClick={() => navigate("/estoque-do-usuario/id")}
+      >
+        Voltar
+      </button>
+      <SProductDetailsPage>
+        {modalDelete && (
+          <Warnning productId={product.id} valueModal={modalDelete} />
+        )}
+        <SProductDetails>
+          <h1>{product.name}</h1>
+          <STextContainer>
+            <div>
+              <img
+                className="product-image"
+                alt={`imagem do produto: ${product.name}`}
+                src={product.image}
+              />
+            </div>
+            <div className="product-description">
+              <p>
+                Departamento: <span>{product.department}</span>
+              </p>
+              <p>
+                Preço: <span>R$ {product.price} reais</span>{" "}
+              </p>
+              <p>
+                Quantidade em Estoque: <span>{product.amount} unidades</span>
+              </p>
+              <p>
+                Descrição: <span>{product.description}</span>
+              </p>
+              <p>
+                {" "}
+                Endereço: <span>{product.adress}</span>{" "}
+              </p>
+              <p>
+                {" "}
+                <span> A {product.distance} km de você</span>
+              </p>
+              <div className="button-container">
+                <button>
+                  <img src={edit} alt="ícone de um lápis" />
+                  Editar Produto
+                </button>
+                <button onClick={changeModal}>
+                  <img src={deleteIcon} alt="ícone de um lixeira" />
+                  Deletar Produto
+                </button>
+              </div>
+            </div>
+          </STextContainer>
+        </SProductDetails>
+      </SProductDetailsPage>
+      <Footer />
+    </SContainer>
   );
 };
 
