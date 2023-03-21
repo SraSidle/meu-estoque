@@ -17,6 +17,7 @@ export const ProductsProvider = ({
   const [productsBK, setProductsBK] = useState<ProductProps[]>(mockProducts);
 
   const [searchTerm, setSearchTerm] = useState("");
+  const [updateModal, setUpdateModal] = useState(false);
 
   const handleDeleteProduct = (id: number): void => {
     const updatedProducts = products.filter((product) => product.id !== id);
@@ -54,6 +55,8 @@ export const ProductsProvider = ({
         searchTerm,
         handleDeleteProduct,
         handleChange,
+        updateModal,
+        setUpdateModal,
       }}
     >
       {children}

@@ -19,6 +19,8 @@ export interface ProductsProviderData {
   products: ProductProps[];
   setProducts: React.Dispatch<React.SetStateAction<ProductProps[]>>;
   searchTerm: string;
+  updateModal: boolean;
+  setUpdateModal: React.Dispatch<React.SetStateAction<boolean>>;
   handleDeleteProduct: (id: number) => void;
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
