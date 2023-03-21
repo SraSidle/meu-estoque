@@ -1,5 +1,6 @@
-import { mockProducts } from "helpers/data";
+import { useProducts } from "contexts/Products.Context";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { SWarnningModal } from "./style";
 
 interface productIdProps {
@@ -7,24 +8,11 @@ interface productIdProps {
   valueModal: boolean;
 }
 
-interface ProductProps {
-  id: number;
-  name: string;
-  image: string;
-  price: string;
-  department: string;
-  description: string;
-  adress: string;
-}
-
 const Warnning = ({ productId, valueModal }: productIdProps): JSX.Element => {
-  const [products, setProducts] = useState<ProductProps[]>(mockProducts);
-  const [modal, setModal] = useState<boolean>(valueModal);
+  const { handleDeleteProduct } = useProducts();
+  const navigate = useNavigate();
 
-  const handleDeleteProduct = (id: number) => {
-    const updatedProducts = mockProducts.filter((product) => product.id !== id);
-    setProducts(updatedProducts);
-  };
+  const [modal, setModal] = useState<boolean>(valueModal);
 
   return (
     <SWarnningModal className={modal ? `` : `modal-close`}>
@@ -35,6 +23,7 @@ const Warnning = ({ productId, valueModal }: productIdProps): JSX.Element => {
             onClick={(): void => {
               handleDeleteProduct(productId);
               setModal(false);
+              navigate("/estoque-do-usuario/id");
             }}
           >
             Sim

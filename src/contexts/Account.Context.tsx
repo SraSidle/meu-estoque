@@ -1,15 +1,15 @@
 import type {
-    allProviderProps,
-    Auth,
-    AuthProviderData,
-  } from "types/interfaces/users";
+  AllProviderProps,
+  Auth,
+  AuthProviderData,
+} from "types/interfaces/users";
 import { createContext, useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Api } from "helpers/Api";
 
 const AuthContext = createContext<AuthProviderData>({} as AuthProviderData);
 
-export const AuthProvider = ({ children }: allProviderProps): JSX.Element => {
+export const AuthProvider = ({ children }: AllProviderProps): JSX.Element => {
   const [logged, setLogged] = useState<boolean>(false);
   const [currentUser, setCurrentUser] = useState<Auth>();
   const navigate = useNavigate();

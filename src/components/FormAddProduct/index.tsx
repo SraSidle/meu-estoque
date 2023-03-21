@@ -1,10 +1,14 @@
 import { useState } from "react";
-import { mockProducts } from "helpers/data";
 import { SAddProductForm, STextAreaContent } from "./style";
 import Input from "components/Input";
 import Message from "components/Message";
+import { useProducts } from "contexts/Products.Context";
+import { useNavigate } from "react-router-dom";
 
 const FormAddProduct = (): JSX.Element => {
+  const { products, setProducts } = useProducts();
+  const navigate = useNavigate();
+
   const [name, setName] = useState<string>("");
   const [price, setPrice] = useState<string>("");
   const [department, setDepartment] = useState<string>("");
@@ -31,8 +35,9 @@ const FormAddProduct = (): JSX.Element => {
 
   const handleAddProduct = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
     const newProduct = {
-      id: mockProducts.length + 1,
+      id: products.length + 1,
       name: name,
       price: price,
       department: department,
@@ -43,7 +48,8 @@ const FormAddProduct = (): JSX.Element => {
       distance: distance,
     };
 
-    mockProducts.push(newProduct);
+    setProducts([...products, newProduct]);
+
     setName("");
     setDepartment("");
     setImage("");
@@ -51,7 +57,9 @@ const FormAddProduct = (): JSX.Element => {
     setDescription("");
     setAmount("");
     setAdress("");
+
     changeMessageState("Produto adicionado com sucesso!");
+    navigate("/estoque-do-usuario/id");
   };
 
   return (

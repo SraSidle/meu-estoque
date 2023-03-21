@@ -1,12 +1,13 @@
 import { BrowserRouter } from "react-router-dom";
-import { ReactNode } from "react";
+import { ProductsProvider } from "./Products.Context";
+import { AllProviderProps } from "types/interfaces/users";
 
-interface ProvidersProps {
-  children: ReactNode;
-}
-
-const Providers = ({ children }: ProvidersProps): JSX.Element => {
-  return <BrowserRouter>{children}</BrowserRouter>;
+const Providers = ({ children }: AllProviderProps): JSX.Element => {
+  return (
+    <BrowserRouter>
+      <ProductsProvider>{children}</ProductsProvider>
+    </BrowserRouter>
+  );
 };
 
 export default Providers;

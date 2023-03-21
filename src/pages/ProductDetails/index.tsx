@@ -1,6 +1,5 @@
 import Header from "components/Header";
 import Footer from "components/Footer";
-import { mockProducts } from "helpers/data";
 import { useNavigate, useParams } from "react-router-dom";
 import {
   SContainer,
@@ -12,11 +11,14 @@ import { useState } from "react";
 import Warnning from "components/Wanning";
 import edit from "assets/icons/edit.png";
 import deleteIcon from "assets/icons/bin.png";
+import { useProducts } from "contexts/Products.Context";
 
 const ProductDetails = (): JSX.Element => {
+  const { products } = useProducts();
+
   const [modalDelete, setModalDelete] = useState<boolean>(false);
   const { productId } = useParams<{ productId: any }>();
-  const product = mockProducts.find((p) => p.id === parseInt(productId));
+  const product = products.find((p) => p.id === parseInt(productId));
   const navigate = useNavigate();
 
   const changeModal = () => {
