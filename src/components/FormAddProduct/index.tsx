@@ -11,6 +11,8 @@ const FormAddProduct = (): JSX.Element => {
   const [image, setImage] = useState<string>("");
   const [adress, setAdress] = useState<string>("");
   const [description, setDescription] = useState<string>("");
+  const [amount, setAmount] = useState<string>("");
+  const [distance] = useState<string>("16");
   const [messageState, setMessageState] = useState<Boolean>(false);
   const [messageValue, setMessageValue] = useState<string>("");
 
@@ -35,17 +37,19 @@ const FormAddProduct = (): JSX.Element => {
       price: price,
       department: department,
       image: image,
+      amount: Number(amount),
       description: description,
       adress: adress,
+      distance: distance,
     };
 
-    console.log(newProduct);
     mockProducts.push(newProduct);
     setName("");
     setDepartment("");
     setImage("");
     setPrice("");
     setDescription("");
+    setAmount("");
     setAdress("");
     changeMessageState("Produto adicionado com sucesso!");
   };
@@ -66,6 +70,12 @@ const FormAddProduct = (): JSX.Element => {
             type="text"
             value={setPrice}
             placeholder="Bola de Futebol profissional"
+          />
+          <Input
+            label="Quantidade Disponível"
+            type="name"
+            value={setAmount}
+            placeholder="180"
           />
           <Input
             label="Imagem do produto"
