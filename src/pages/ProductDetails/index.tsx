@@ -1,5 +1,6 @@
 import Header from "components/Header";
 import Footer from "components/Footer";
+import location from "assets/icons/location.png";
 import { useNavigate, useParams } from "react-router-dom";
 import {
   SContainer,
@@ -67,9 +68,12 @@ const ProductDetails = (): JSX.Element => {
                 <p>
                   Descrição: <span>{product.description}</span>
                 </p>
-                <p>
-                  Endereço: <span>{product.adress}</span>
-                </p>
+                <div className="location">
+                  <img src={location} alt="ícone de localização" />
+                  <p>
+                    Endereço: <span>{product.adress}</span>
+                  </p>
+                </div>
                 <p>
                   <span> A {product.distance} km de você</span>
                 </p>

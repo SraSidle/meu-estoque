@@ -44,12 +44,21 @@ export const STextContainer = styled.div`
   gap: 10rem;
 
   div {
-    button {
+    .button-container {
       width: 25rem;
       margin: 0 2rem;
       img {
         width: 2.5rem;
         margin-right: 1rem;
+      }
+    }
+
+    .location {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 2.5rem;
       }
     }
   }
