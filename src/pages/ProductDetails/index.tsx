@@ -68,15 +68,15 @@ const ProductDetails = (): JSX.Element => {
                 <p>
                   Descrição: <span>{product.description}</span>
                 </p>
-                <div className="location">
-                  <img src={location} alt="ícone de localização" />
                   <p>
                     Endereço: <span>{product.adress}</span>
                   </p>
-                </div>
+                <div className="location">
+                  <img src={location} alt="ícone de localização" />
                 <p>
                   <span> A {product.distance} km de você</span>
                 </p>
+                </div>
                 <div className="button-container">
                   <button
                     onClick={() => {

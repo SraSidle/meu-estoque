@@ -44,21 +44,12 @@ export const STextContainer = styled.div`
   gap: 10rem;
 
   div {
-    .button-container {
+    button {
       width: 25rem;
       margin: 0 2rem;
       img {
         width: 2.5rem;
         margin-right: 1rem;
-      }
-    }
-
-    .location {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      img {
-        width: 2.5rem;
       }
     }
   }
@@ -78,6 +69,16 @@ export const STextContainer = styled.div`
 
     .button-container {
       display: flex;
+    }
+
+    .location {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      img {
+        width: 3rem;
+      }
     }
   }
 `;
