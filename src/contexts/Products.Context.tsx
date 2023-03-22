@@ -44,7 +44,10 @@ export const ProductsProvider = ({
   useEffect(handleSearch, [searchTerm]);
 
   useEffect(() => {
-    setProductsBK(products);
+    if (searchTerm === "") {
+      setProductsBK(products);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [products]);
 
   return (
