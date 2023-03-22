@@ -18,14 +18,11 @@ const Router = (): JSX.Element => {
       <Route path="/" element={<Home />} />
       <Route path="/adicionar-novo-produto" element={<AddProduct />} />
       <Route path="/estoque-do-usuario/id" element={<MyStock />} />
-      <Route path="/entrada-de-mercadorias" element={<ProductEntry />} />
+      <Route path="/saida-de-mercadorias" element={<ProductEntry />} />
       <Route path="/configuracoes-de-conta" element={<Settings />} />
       <Route path="/termos-de-uso" element={<TermsOfUse />} />
       <Route path="/politica-de-privacidade" element={<PrivacyPolicy />} />
-      <Route
-        path="/products/:productId"
-       element={<ProductDetails />}
-      />
+      <Route path="/products/:productId" element={<ProductDetails />} />
     </Routes>
   );
 };

@@ -34,8 +34,8 @@ const Menu = (): JSX.Element => {
               image={graphic}
             />
             <NavigateMenu
-              text="Entradas"
-              page="/entrada-de-mercadorias"
+              text="Saídas"
+              page="/saida-de-mercadorias"
               image={entry}
             />
             <NavigateMenu
