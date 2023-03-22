@@ -2,13 +2,14 @@ import styled from "styled-components";
 import { defaultTheme } from "assets/styles/themes/default";
 
 export const SPage = styled.div`
-  width: 100vw;
+  width: 100%;
   height: auto;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10rem 0;
+  overflow-x: hidden;
 `;
 
 export const StermsUse = styled.div`
